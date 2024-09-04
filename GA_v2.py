@@ -156,11 +156,8 @@ class GA(object):
 
     def run(self):
         pop = self.init()
-        # print(self.fan(self.b2d(pop, self.lb, self.ub)))
-        # for g in tqdm(range(self.max_iter),  desc="GA_Processing"):
-        for g in range(self.max_iter):
+        for g in tqdm(range(self.max_iter),  desc="GA_Processing"):
             pop1 = self.crossover(pop)
-            xx1 = self.b2d(pop1, self.lb, self.ub)
             pop2 = self.mutation(pop1)
             pop2 = np.unique(pop2, axis=0)
             pop3 = self.b2d(pop2, self.lb, self.ub)
@@ -194,4 +191,3 @@ if __name__ == "__main__":
     plt.figure()
     plt.plot(x, y)
     plt.show()
-
